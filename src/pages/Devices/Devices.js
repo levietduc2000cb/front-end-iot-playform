@@ -1,7 +1,13 @@
 import React from 'react';
 
+import SideBarIntroduces from '~/components/SideBarIntroduces';
+
 const Devices = () => {
-  return <div>Đây là trang devices</div>;
+  return (
+    <div>
+      <SideBarIntroduces />
+    </div>
+  );
 };
 
 export default Devices;

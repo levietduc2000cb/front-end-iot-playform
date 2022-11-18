@@ -11,114 +11,108 @@ import {
 } from 'react-icons/fa';
 
 const SideBar = () => {
-  const listMainSideBar = [
-    {
-      path: '/',
-      icon: FaHome,
-      color: '#FF00FF',
-      title: 'Home',
-    },
-    {
-      path: '/devices',
-      icon: FaRocket,
-      color: '#08B5FB',
-      title: 'Devices',
-    },
-    {
-      path: '/dashboards',
-      icon: FaTachometerAlt,
-      color: '#009923',
-      title: 'Dashboards',
-    },
-    {
-      path: '/customers',
-      icon: FaUsers,
-      color: '#FFC40D',
-      title: 'Customers',
-    },
-  ];
-
-  const listAdministrationSideBar = [
-    {
-      path: '/profile',
-      icon: FaUserAlt,
-      color: '#27C24C',
-      title: 'Profile',
-    },
-    {
-      path: '/setting',
-      icon: FaCogs,
-      color: '#F05050',
-      title: 'Setting',
-    },
-    {
-      path: '/support',
-      icon: FaQuestionCircle,
-      color: '#23B7E5',
-      title: 'Support',
-    },
-  ];
-
-  const handleIcon = (icon, color) => {
-    let Icon = icon;
-
-    return <Icon className={`text-[${color}]`}></Icon>;
-  };
-
   return (
     <div className="w-full max-w-[200px] min-h-screen bg-[#132533]">
       <div className="text-2xl text-white font-extrabold leading-5 h-12 flex justify-center items-center">
         TLU.io
       </div>
       <ul className="text-sm font-bold text-[#709ABB] border-solid border-b-4 border-[#0C1821]">
-        {listMainSideBar.map((mainSideBar, index) => {
-          return (
-            <NavLink
-              key={index}
-              to={mainSideBar.path}
-              className={({ isActive }) =>
-                `flex pl-3 hover:bg-[#0e1d29] hover:text-white cursor-pointer ${
-                  isActive && 'bg-[#0C1821] text-white'
-                }`
-              }
-            >
-              <div className="w-10 h-10 leading-10 font-black flex justify-center items-center">
-                {handleIcon(mainSideBar.icon, mainSideBar.color)}
-              </div>
-              <div className="flex justify-center items-center">
-                {mainSideBar.title}
-              </div>
-            </NavLink>
-          );
-        })}
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            `flex pl-3 hover:bg-[#0e1d29] hover:text-white cursor-pointer ${
+              isActive && 'bg-[#0C1821] text-white'
+            }`
+          }
+        >
+          <div className="w-10 h-10 leading-10 font-black flex justify-center items-center">
+            <FaHome className="text-[#FF00FF]" />
+          </div>
+          <div className="flex justify-center items-center">Home</div>
+        </NavLink>
+        <NavLink
+          to="/devices"
+          className={({ isActive }) =>
+            `flex pl-3 hover:bg-[#0e1d29] hover:text-white cursor-pointer ${
+              isActive && 'bg-[#0C1821] text-white'
+            }`
+          }
+        >
+          <div className="w-10 h-10 leading-10 font-black flex justify-center items-center">
+            <FaRocket className="text-[#08B5FB]" />
+          </div>
+          <div className="flex justify-center items-center">Devices</div>
+        </NavLink>
+        <NavLink
+          to="/dashboards"
+          className={({ isActive }) =>
+            `flex pl-3 hover:bg-[#0e1d29] hover:text-white cursor-pointer ${
+              isActive && 'bg-[#0C1821] text-white'
+            }`
+          }
+        >
+          <div className="w-10 h-10 leading-10 font-black flex justify-center items-center">
+            <FaTachometerAlt className="text-[#009923]" />
+          </div>
+          <div className="flex justify-center items-center">Dashboards</div>
+        </NavLink>
+        <NavLink
+          to="/customers"
+          className={({ isActive }) =>
+            `flex pl-3 hover:bg-[#0e1d29] hover:text-white cursor-pointer ${
+              isActive && 'bg-[#0C1821] text-white'
+            }`
+          }
+        >
+          <div className="w-10 h-10 leading-10 font-black flex justify-center items-center">
+            <FaUsers className="text-[#FFC40D]" />
+          </div>
+          <div className="flex justify-center items-center">Customers</div>
+        </NavLink>
       </ul>
       <div className="pl-3 text-left text-xs text-[#487497] py-3">
         Administration
       </div>
       <ul className="text-sm font-bold text-[#709ABB]">
-        {listAdministrationSideBar.map((administrationSideBar, index) => {
-          return (
-            <NavLink
-              key={index}
-              to={administrationSideBar.path}
-              className={({ isActive }) =>
-                `flex pl-3 hover:bg-[#0e1d29] hover:text-white cursor-pointer ${
-                  isActive && 'bg-[#0C1821] text-white'
-                }`
-              }
-            >
-              <div className="w-10 h-10 leading-10 font-black flex justify-center items-center">
-                {handleIcon(
-                  administrationSideBar.icon,
-                  administrationSideBar.color,
-                )}
-              </div>
-              <div className="flex justify-center items-center">
-                {administrationSideBar.title}
-              </div>
-            </NavLink>
-          );
-        })}
+        <NavLink
+          to="/profile"
+          className={({ isActive }) =>
+            `flex pl-3 hover:bg-[#0e1d29] hover:text-white cursor-pointer ${
+              isActive && 'bg-[#0C1821] text-white'
+            }`
+          }
+        >
+          <div className="w-10 h-10 leading-10 font-black flex justify-center items-center">
+            <FaUserAlt className="text-[#27C24C]" />
+          </div>
+          <div className="flex justify-center items-center">Profile</div>
+        </NavLink>
+        <NavLink
+          to="/setting"
+          className={({ isActive }) =>
+            `flex pl-3 hover:bg-[#0e1d29] hover:text-white cursor-pointer ${
+              isActive && 'bg-[#0C1821] text-white'
+            }`
+          }
+        >
+          <div className="w-10 h-10 leading-10 font-black flex justify-center items-center">
+            <FaCogs className="text-[#F05050]" />
+          </div>
+          <div className="flex justify-center items-center">Setting</div>
+        </NavLink>
+        <NavLink
+          to="/support"
+          className={({ isActive }) =>
+            `flex pl-3 hover:bg-[#0e1d29] hover:text-white cursor-pointer ${
+              isActive && 'bg-[#0C1821] text-white'
+            }`
+          }
+        >
+          <div className="w-10 h-10 leading-10 font-black flex justify-center items-center">
+            <FaQuestionCircle className="text-[#23B7E5]" />
+          </div>
+          <div className="flex justify-center items-center">Support</div>
+        </NavLink>
       </ul>
     </div>
   );

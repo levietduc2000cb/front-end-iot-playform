@@ -1,13 +1,10 @@
 import './App.css';
-import Layout from './layout';
-import Routes from './routes';
+import MainRoutes from './routes';
 
 function App() {
   return (
     <div className="App">
-      <Layout>
-        <Routes />
-      </Layout>
+      <MainRoutes />
     </div>
   );
 }

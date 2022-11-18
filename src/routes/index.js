@@ -1,7 +1,10 @@
 import React from 'react';
-import { useRoutes } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
+import Layout from '~/layout';
 import Home from '~/pages/Home';
+import LogIn from '~/pages/LogIn';
+import Register from '~/pages/Register';
 import Devices from '~/pages/Devices';
 import Dashboards from '~/pages/Dashboards';
 import Customers from '~/pages/Customers';
@@ -9,38 +12,75 @@ import Profile from '~/pages/Profile';
 import Setting from '~/pages/Setting';
 import Support from '~/pages/Support';
 
-const Routes = () => {
-  const routes = useRoutes([
+const MainRoutes = () => {
+  const routes = [
     {
       path: '/',
-      element: <Home />,
+      element: Home,
+      isLayout: true,
+    },
+    {
+      path: '/log-in',
+      element: LogIn,
+      isLayout: false,
+    },
+    {
+      path: '/register',
+      element: Register,
+      isLayout: false,
     },
     {
       path: '/devices',
-      element: <Devices />,
+      element: Devices,
+      isLayout: true,
     },
     {
       path: '/dashboards',
-      element: <Dashboards />,
+      element: Dashboards,
+      isLayout: true,
     },
     {
       path: '/customers',
-      element: <Customers />,
+      element: Customers,
+      isLayout: true,
     },
     {
       path: '/profile',
-      element: <Profile />,
+      element: Profile,
+      isLayout: true,
     },
     {
       path: '/setting',
-      element: <Setting />,
+      element: Setting,
+      isLayout: true,
     },
     {
       path: '/support',
-      element: <Support />,
+      element: Support,
+      isLayout: true,
     },
-  ]);
-  return routes;
+  ];
+  return (
+    <Routes>
+      {routes.map((route, index) => {
+        let Element = route.element;
+        return (
+          <Route
+            path={route.path}
+            element={
+              route.isLayout ? (
+                <Layout>
+                  <Element />
+                </Layout>
+              ) : (
+                <Element />
+              )
+            }
+          ></Route>
+        );
+      })}
+    </Routes>
+  );
 };
 
-export default Routes;
+export default MainRoutes;

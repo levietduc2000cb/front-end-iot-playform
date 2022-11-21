@@ -2,15 +2,24 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import Layout from '~/layout';
-import Home from '~/pages/Home';
-import LogIn from '~/pages/LogIn';
-import Register from '~/pages/Register';
-import Devices from '~/pages/Devices';
-import Dashboards from '~/pages/Dashboards';
-import Customers from '~/pages/Customers';
-import Profile from '~/pages/Profile';
-import Setting from '~/pages/Setting';
-import Support from '~/pages/Support';
+import LazyLoading from '~/components/LazyLoading';
+// import LogIn from '~/pages/LogIn';
+// import Register from '~/pages/Register';
+// import Devices from '~/pages/Devices';
+// import Dashboards from '~/pages/Dashboards';
+// import Customers from '~/pages/Customers';
+// import Profile from '~/pages/Profile';
+// import Setting from '~/pages/Setting';
+// import Support from '~/pages/Support';
+const Home = React.lazy(() => import('~/pages/Home'));
+const LogIn = React.lazy(() => import('~/pages/LogIn'));
+const Register = React.lazy(() => import('~/pages/Register'));
+const Devices = React.lazy(() => import('~/pages/Devices'));
+const Dashboards = React.lazy(() => import('~/pages/Dashboards'));
+const Customers = React.lazy(() => import('~/pages/Customers'));
+const Profile = React.lazy(() => import('~/pages/Profile'));
+const Setting = React.lazy(() => import('~/pages/Setting'));
+const Support = React.lazy(() => import('~/pages/Support'));
 
 const MainRoutes = () => {
   const routes = [
@@ -66,14 +75,19 @@ const MainRoutes = () => {
         let Element = route.element;
         return (
           <Route
+            key={index}
             path={route.path}
             element={
               route.isLayout ? (
                 <Layout>
-                  <Element />
+                  <React.Suspense fallback={<LazyLoading />}>
+                    <Element />
+                  </React.Suspense>
                 </Layout>
               ) : (
-                <Element />
+                <React.Suspense fallback={<LazyLoading />}>
+                  <Element />
+                </React.Suspense>
               )
             }
           ></Route>

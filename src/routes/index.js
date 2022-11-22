@@ -15,6 +15,7 @@ const Home = React.lazy(() => import('~/pages/Home'));
 const LogIn = React.lazy(() => import('~/pages/LogIn'));
 const Register = React.lazy(() => import('~/pages/Register'));
 const Devices = React.lazy(() => import('~/pages/Devices'));
+const DetailDevice = React.lazy(() => import('~/pages/DetailDevice'));
 const Dashboards = React.lazy(() => import('~/pages/Dashboards'));
 const Customers = React.lazy(() => import('~/pages/Customers'));
 const Profile = React.lazy(() => import('~/pages/Profile'));
@@ -41,6 +42,11 @@ const MainRoutes = () => {
     {
       path: '/devices',
       element: Devices,
+      isLayout: true,
+    },
+    {
+      path: '/devices/:id',
+      element: DetailDevice,
       isLayout: true,
     },
     {

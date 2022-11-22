@@ -70,9 +70,7 @@ const SideBar = () => {
           <div className="flex justify-center items-center">Customers</div>
         </NavLink>
       </ul>
-      <div className="pl-3 text-left text-xs text-[#487497] py-3">
-        Administration
-      </div>
+      <div className="pl-3 text-left text-xs text-[#487497] py-3">Account</div>
       <ul className="text-sm font-bold text-[#709ABB]">
         <NavLink
           to="/profile"

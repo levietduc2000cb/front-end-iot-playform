@@ -2,38 +2,44 @@ import React from 'react';
 import { FaRocket, FaInfoCircle } from 'react-icons/fa';
 
 import DetailInfor from '~/components/DetailInfor';
-
-const DetailDevice = () => {
-  const inforDeviceConfiguration = [
-    { title: 'Device Type', infor: 'Tempurate' },
-    { title: 'Access Token', infor: '134567876543' },
-    { title: 'Device Id', infor: '121241241' },
+const DetailCustomer = () => {
+  const inforCustomerConfiguration = [
+    { title: 'Customer Type', infor: 'Company' },
+    { title: 'Customer Email', infor: '134567876543' },
+    { title: 'Customer Password', infor: '134567876543' },
+    { title: 'Customer Id', infor: '121241241' },
   ];
 
-  const inforDevice = [
-    { title: 'Device Name', infor: 'Tempurate' },
+  const inforCustomer = [
+    { title: 'Customer Name', infor: 'Hoang Gia Minh' },
     {
-      title: 'Device Description',
-      infor:
-        'Cảm biến nhiệt độ là một thiết bị RTD (đầu dò điện trở) hoặc là cặp nhiệt điện giúp đo sự biến đổi về nhiệt độ của vật cần đo. Khi nhiệt độ có sự thay đổi lớn thì các cảm biến sẽ đưa ra một tín hiệu, từ đó các bộ đọc sẽ đọc và quy ra thành một con số cụ thể',
+      title: 'Customer Address',
+      infor: 'Hoàng Mai, Hà Nôi, Gia Lâm',
+    },
+    {
+      title: 'Customer Discription',
+      infor: 'Công ty phát triển phần mềm một thành viên',
+    },
+    {
+      title: 'Customer Phone Number',
+      infor: '0612843654',
     },
   ];
-
   return (
     <div className="bg-[#F0F3F4] pt-6 px-6">
       <div>
         <div className="bg-[#F6F8F8] h-10 flex items-center text-base px-3">
-          Device Details
+          Customer Details
         </div>
         <div className="bg-white px-3 min-h-full">
           <div className="gridCustom">
             <div></div>
             <div className="text-base font-bold leading-5 flex items-center text-black py-5">
               <FaRocket className="mr-1" />
-              Device Configuration
+              Customer Configuration
             </div>
           </div>
-          {inforDeviceConfiguration.map((infor, index) => {
+          {inforCustomerConfiguration.map((infor, index) => {
             return (
               <DetailInfor
                 key={index}
@@ -46,10 +52,10 @@ const DetailDevice = () => {
             <div></div>
             <div className="text-base font-bold leading-5 flex items-center text-black py-5">
               <FaInfoCircle className="mr-1" />
-              Device Information
+              Customer Information
             </div>
           </div>
-          {inforDevice.map((infor, index) => {
+          {inforCustomer.map((infor, index) => {
             return (
               <DetailInfor
                 key={index}
@@ -64,4 +70,4 @@ const DetailDevice = () => {
   );
 };
 
-export default DetailDevice;
+export default DetailCustomer;

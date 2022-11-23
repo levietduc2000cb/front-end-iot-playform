@@ -18,9 +18,10 @@ const Devices = React.lazy(() => import('~/pages/Devices'));
 const DetailDevice = React.lazy(() => import('~/pages/DetailDevice'));
 const Dashboards = React.lazy(() => import('~/pages/Dashboards'));
 const Customers = React.lazy(() => import('~/pages/Customers'));
+const DetailCustomer = React.lazy(() => import('~/pages/DetailCustomer'));
 const Profile = React.lazy(() => import('~/pages/Profile'));
 const Setting = React.lazy(() => import('~/pages/Setting'));
-const Support = React.lazy(() => import('~/pages/Support'));
+const Document = React.lazy(() => import('~/pages/Document'));
 
 const MainRoutes = () => {
   const routes = [
@@ -60,6 +61,11 @@ const MainRoutes = () => {
       isLayout: true,
     },
     {
+      path: '/customers/:id',
+      element: DetailCustomer,
+      isLayout: true,
+    },
+    {
       path: '/profile',
       element: Profile,
       isLayout: true,
@@ -70,8 +76,8 @@ const MainRoutes = () => {
       isLayout: true,
     },
     {
-      path: '/support',
-      element: Support,
+      path: '/document',
+      element: Document,
       isLayout: true,
     },
   ];

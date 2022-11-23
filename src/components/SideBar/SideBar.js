@@ -99,7 +99,7 @@ const SideBar = () => {
           <div className="flex justify-center items-center">Setting</div>
         </NavLink>
         <NavLink
-          to="/support"
+          to="/document"
           className={({ isActive }) =>
             `flex pl-3 hover:bg-[#0e1d29] hover:text-white cursor-pointer ${
               isActive && 'bg-[#0C1821] text-white'
@@ -109,7 +109,7 @@ const SideBar = () => {
           <div className="w-10 h-10 leading-10 font-black flex justify-center items-center">
             <FaQuestionCircle className="text-[#23B7E5]" />
           </div>
-          <div className="flex justify-center items-center">Support</div>
+          <div className="flex justify-center items-center">Document</div>
         </NavLink>
       </ul>
     </div>

@@ -2,23 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FaListAlt } from 'react-icons/fa';
 
-import Device from './Device';
 import FormSearch from '~/components/FormSearch';
+import Customer from './Customer';
 
-const ListDevices = ({ handleOpenModalDeleteDevice }) => {
-  const listDevices = [
-    { createdTime: '2022-09-23 21:45:06', name: 'Temperature', customer: null },
+const ListCustomer = ({ handleOpenModalDeleteCustomer }) => {
+  const listCustomers = [
     {
       createdTime: '2022-09-23 21:45:06',
-      name: 'Humidity',
-      customer: 'Duy Chiến',
+      name: 'Hoang Gia Minh',
+      address: 'Hà Nội',
+      phoneNumber: '123456789',
     },
   ];
 
   return (
     <div>
       <div className="h-11 flex items-center bg-[#F6F8F8] text-base mx-4 pl-2">
-        Device List
+        Customer List
         <FaListAlt className="ml-2 text-[#98A6AD]" />
       </div>
       <div className="flex justify-end my-1">
@@ -37,20 +37,21 @@ const ListDevices = ({ handleOpenModalDeleteDevice }) => {
                 Name
               </th>
               <th scope="col" className="py-3 px-6">
-                Customer
+                Address
               </th>
               <th scope="col" className="py-3 px-6"></th>
             </tr>
           </thead>
           <tbody>
-            {listDevices.map((device, index) => {
+            {listCustomers.map((customer, index) => {
               return (
-                <Device
+                <Customer
                   key={index}
-                  idDevice={index.toString()}
-                  createdTime={device.createdTime}
-                  name={device.name}
-                  onClickHandleOpenDelete={handleOpenModalDeleteDevice}
+                  idCustomer={index.toString()}
+                  createdTime={customer.createdTime}
+                  name={customer.name}
+                  addressCustomer={customer.address}
+                  onClickHandleOpenDelete={handleOpenModalDeleteCustomer}
                 />
               );
             })}
@@ -61,8 +62,8 @@ const ListDevices = ({ handleOpenModalDeleteDevice }) => {
   );
 };
 
-ListDevices.propTypes = {
-  handleOpenModalDeleteDevice: PropTypes.func,
+ListCustomer.propTypes = {
+  handleOpenModalDeleteCustomer: PropTypes.func,
 };
 
-export default ListDevices;
+export default ListCustomer;

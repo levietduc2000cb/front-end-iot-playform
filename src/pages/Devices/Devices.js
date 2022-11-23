@@ -43,17 +43,12 @@ const Devices = () => {
         handleClick={handleOpenModalCreateDevice}
       />
       <ListDevices handleOpenModalDeleteDevice={handleOpenModalDeleteDevice} />
-      <div
-        className={`fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex items-center justify-center ${
-          openModalCreateDevice ? '' : 'invisible'
-        }`}
-      >
-        <div className="w-1/2 bg-white rounded-md">
-          <FormCreateDevice
-            handleClickCLoseModal={handleCloseModalCreateDevice}
-          />
-        </div>
-      </div>
+      {openModalCreateDevice && (
+        <FormCreateDevice
+          handleClickCLoseModal={handleCloseModalCreateDevice}
+        />
+      )}
+
       {openModalDeleteDevice && (
         <Dialog
           nameBtn="Xóa thiết bị"

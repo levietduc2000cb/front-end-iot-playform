@@ -13,10 +13,14 @@ import LazyLoading from '~/components/LazyLoading';
 // import Support from '~/pages/Support';
 const Home = React.lazy(() => import('~/pages/Home'));
 const LogIn = React.lazy(() => import('~/pages/LogIn'));
+const LostPassword = React.lazy(() => import('~/pages/LostPassword'));
 const Register = React.lazy(() => import('~/pages/Register'));
 const Devices = React.lazy(() => import('~/pages/Devices'));
 const DetailDevice = React.lazy(() => import('~/pages/DetailDevice'));
 const Dashboards = React.lazy(() => import('~/pages/Dashboards'));
+const DataBuckets = React.lazy(() => import('~/pages/DataBuckets'));
+const Endpoints = React.lazy(() => import('~/pages/Endpoints'));
+const Assets = React.lazy(() => import('~/pages/Assets'));
 const Customers = React.lazy(() => import('~/pages/Customers'));
 const DetailCustomer = React.lazy(() => import('~/pages/DetailCustomer'));
 const Profile = React.lazy(() => import('~/pages/Profile'));
@@ -33,6 +37,11 @@ const MainRoutes = () => {
     {
       path: '/log-in',
       element: LogIn,
+      isLayout: false,
+    },
+    {
+      path: '/lost-password',
+      element: LostPassword,
       isLayout: false,
     },
     {
@@ -53,6 +62,21 @@ const MainRoutes = () => {
     {
       path: '/dashboards',
       element: Dashboards,
+      isLayout: true,
+    },
+    {
+      path: '/data-buckets',
+      element: DataBuckets,
+      isLayout: true,
+    },
+    {
+      path: '/endpoints',
+      element: Endpoints,
+      isLayout: true,
+    },
+    {
+      path: '/assets',
+      element: Assets,
       isLayout: true,
     },
     {

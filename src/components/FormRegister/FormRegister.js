@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 const FormRegister = () => {
+  const [illegalForm, setIllegalForm] = useState(false);
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -22,7 +24,15 @@ const FormRegister = () => {
         .required('You must fill your confirm password '),
     }),
     onSubmit: (values) => {
-      console.log({ values });
+      let emailTail = values.email.split('@')[1];
+      if (emailTail !== 'thanglong.edu.vn' && !illegalForm) {
+        formik.errors.email = 'Email must be exam@thanglong.edu.vn';
+        setIllegalForm(true);
+        return;
+      } else {
+        console.log(`Tạo tai khoản thành công : ${values}`);
+        setIllegalForm(false);
+      }
     },
   });
 
@@ -40,7 +50,7 @@ const FormRegister = () => {
           name="email"
           id="email"
           className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="name@gmail.com"
+          placeholder="exam@thanglong.edu.vn"
           value={formik.values.email}
           onChange={formik.handleChange}
           autoComplete="off"

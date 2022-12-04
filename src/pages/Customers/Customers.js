@@ -6,18 +6,9 @@ import ListCustomer from '~/components/ListCustomer';
 import Dialog from '~/components/Dialog';
 
 const Customers = () => {
-  const [openModalCreateCustomer, setOpenModalCreateCustomer] = useState(false);
   const [openModalDeleteCustomer, setOpenModalDeleteCustomer] = useState(false);
 
   const idCustomer = useRef(null);
-
-  const handleOpenModalCreateCustomer = () => {
-    setOpenModalCreateCustomer(true);
-  };
-
-  const handleCloseModalCreateCustomer = () => {
-    setOpenModalCreateCustomer(false);
-  };
 
   const handleOpenModalDeleteCustomer = (idCustomerDelete) => {
     idCustomer.current = idCustomerDelete;
@@ -40,13 +31,8 @@ const Customers = () => {
         title="Customers"
         content="Bring access to your customers to your IoT application. Create members, other developers, or domain administrators easily."
         contentBtn="Create a Customer"
-        handleClick={handleOpenModalCreateCustomer}
+        elementForm={FormCreateCustomer}
       />
-      {openModalCreateCustomer && (
-        <FormCreateCustomer
-          handleClickCLoseModal={handleCloseModalCreateCustomer}
-        />
-      )}
       {openModalDeleteCustomer && (
         <Dialog
           nameBtn="Xóa khách hàng"

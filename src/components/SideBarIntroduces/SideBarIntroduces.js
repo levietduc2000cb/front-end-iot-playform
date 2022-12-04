@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { IoMdAddCircle } from 'react-icons/io';
+
+import ButtonCreateForm from '../UI/ButtonCreateForm';
 
 import Background_iot_platform from '~/assets/image/background_iot_platform.JPG';
 
-const SideBarIntroduces = ({ title, content, contentBtn, handleClick }) => {
+const SideBarIntroduces = ({ title, content, contentBtn, elementForm }) => {
   return (
     <div className="w-full p-12">
       <div className="flex items-center px-9">
@@ -13,15 +14,10 @@ const SideBarIntroduces = ({ title, content, contentBtn, handleClick }) => {
           <div className="text-[#58666e] text-lg font-medium leading-5 mt-4 mb-10">
             {content}
           </div>
-          <button
-            className="flex items-center justify-center bg-[#27C24C] hover:bg-[#23ad44] border-none outline-none w-[197px] h-[48px] rounded-full"
-            onClick={handleClick}
-          >
-            <IoMdAddCircle className="text-[#ffffff] w-[18px] h-[18px] mr-1" />
-            <span className="text-[#ffffff] text-lg  leading-6 font-medium">
-              {contentBtn}
-            </span>
-          </button>
+          <ButtonCreateForm
+            contentBtn={contentBtn}
+            elementForm={elementForm}
+          ></ButtonCreateForm>
         </div>
         <div>
           <img
@@ -39,7 +35,7 @@ SideBarIntroduces.propTypes = {
   title: PropTypes.string,
   content: PropTypes.string,
   contentBtn: PropTypes.string,
-  handleClick: PropTypes.func,
+  elementForm: PropTypes.func,
 };
 
 export default SideBarIntroduces;

@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import SideBar from '~/components/SideBar';
 import NavBar from '~/components/NavBar';
-// import Test from '~/components/Test';
 
 const Layout = ({ children }) => {
   const [hideMenu, setHideMenu] = useState(false);
 
-  const handldeHideMenu = () => {
-    setHideMenu(!hideMenu);
-  };
+  const handldeHideMenu = useCallback(() => {
+    setHideMenu((pre) => !pre);
+  }, []);
 
   return (
     <div className="flex">

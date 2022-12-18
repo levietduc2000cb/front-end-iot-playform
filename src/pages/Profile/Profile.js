@@ -1,40 +1,40 @@
 import React from 'react';
+
 import testAvatar from '~/assets/image/background_iot_platform.JPG';
+import Img from '~/components/UI/Img';
 
 const Profile = () => {
   return (
     <div>
-      <div className="border-b-2 block md:flex">
-        <div className="w-full md:w-2/5 p-4 sm:p-6 lg:p-8 bg-white shadow-md">
+      <div className="block border-b-2 md:flex">
+        <div className="w-full bg-white p-4 shadow-md sm:p-6 md:w-2/5 lg:p-8">
           <div className="flex justify-between">
-            <span className="text-xl font-semibold block">Duc</span>
+            <span className="block text-xl font-semibold">Duc</span>
             <a
               href="/"
-              className="-mt-2 text-md font-bold text-white bg-gray-700 rounded-full px-5 py-2 hover:bg-gray-800"
+              className="text-md -mt-2 rounded-full bg-gray-700 px-5 py-2 font-bold text-white hover:bg-gray-800"
             >
               Save
             </a>
           </div>
 
-          <div className="text-gray-600 text-center">Administration</div>
-          <div className="w-full p-8 flex justify-center">
+          <div className="text-center text-gray-600">Administration</div>
+          <div className="flex w-full justify-center p-8">
             <label htmlFor="avatar_user" className="cursor-pointer">
-              <img
-                className="p-1 w-28 h-28 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
-                src={testAvatar}
-                alt="Bordered avatar"
-              />
+              <div className="h-28 w-28 overflow-hidden rounded-full border border-gray-500 p-1">
+                <Img linkImg={testAvatar}></Img>
+              </div>
             </label>
             <input type="file" id="avatar_user" hidden></input>
           </div>
         </div>
 
-        <div className="w-full md:w-3/5 p-8 bg-white lg:ml-4 shadow-md">
-          <div className="rounded  shadow p-6">
+        <div className="w-full bg-white p-8 shadow-md md:w-3/5 lg:ml-4">
+          <div className="rounded  p-6 shadow">
             <div className="pb-6">
               <label
                 htmlFor="firstName"
-                className="font-semibold text-gray-700 block pb-1 text-left"
+                className="block pb-1 text-left font-semibold text-gray-700"
               >
                 First Name
               </label>
@@ -42,7 +42,7 @@ const Profile = () => {
                 <input
                   id="firstName"
                   name="firstName"
-                  className="border-1  rounded-r px-4 py-2 w-full"
+                  className="border-1  w-full rounded-r px-4 py-2"
                   type="text"
                   defaultValue="Lê Việt"
                 />
@@ -51,7 +51,7 @@ const Profile = () => {
             <div className="pb-6">
               <label
                 htmlFor="lastName"
-                className="font-semibold text-gray-700 block pb-1 text-left"
+                className="block pb-1 text-left font-semibold text-gray-700"
               >
                 Last Name
               </label>
@@ -59,7 +59,7 @@ const Profile = () => {
                 <input
                   id="lastName"
                   name="lastName"
-                  className="border-1  rounded-r px-4 py-2 w-full"
+                  className="border-1  w-full rounded-r px-4 py-2"
                   type="text"
                   defaultValue="Đức"
                 />
@@ -68,13 +68,13 @@ const Profile = () => {
             <div className="pb-4">
               <label
                 htmlFor="about"
-                className="font-semibold text-gray-700 block pb-1 text-left"
+                className="block pb-1 text-left font-semibold text-gray-700"
               >
                 Email
               </label>
               <input
                 id="email"
-                className="border-1  rounded-r px-4 py-2 w-full"
+                className="border-1  w-full rounded-r px-4 py-2"
                 type="email"
                 defaultValue="duc2000cb@gmail.com"
               />

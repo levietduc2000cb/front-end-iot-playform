@@ -5,15 +5,15 @@ import FormRegister from '~/components/FormRegister';
 
 const Register = () => {
   return (
-    <div className="h-screen flex items-center justify-center bg-[#F0F3F4]">
-      <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-        <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+    <div className="flex h-screen items-center justify-center bg-[#F0F3F4]">
+      <div className="w-full rounded-lg bg-white shadow dark:border dark:border-gray-700 dark:bg-gray-800 sm:max-w-md md:mt-0 xl:p-0">
+        <div className="space-y-4 p-6 sm:p-8 md:space-y-6">
           <img
             src={BackgroundTitle}
             alt="background-title"
-            className="max-w-[126px] w-full max-h-[126px] h-full mx-auto border border-solid border-blue-600 rounded-full"
+            className="mx-auto h-full max-h-[126px] w-full max-w-[126px] rounded-full border border-solid border-blue-600"
           />
-          <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
+          <h1 className="text-center text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
             Register
           </h1>
           <FormRegister />

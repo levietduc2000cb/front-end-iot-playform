@@ -7,24 +7,24 @@ import BackGroundIcon from '~/assets/image/image_icon_home_page.png';
 const Home = () => {
   return (
     <div>
-      <div className="grid grid-cols-6 gap-4 p-4 bg-[#faf9f9]">
-        <div className=" bg-blue-800 text-white h-20 rounded-md border-[3px] border-solid border-blue-800 hover:border-blue-800">
-          <div className="text-sm font-bold text-center leading-7">
+      <div className="grid grid-cols-6 gap-4 bg-[#faf9f9] p-4 mtb:grid-cols-4">
+        <div className=" h-20 rounded-md border-[3px] border-solid border-blue-800 bg-blue-800 text-white hover:border-blue-800">
+          <div className="text-center text-sm font-bold leading-7">
             Total Devices
           </div>
-          <div className="text-2xl font-bold flex justify-center items-center leading-8">
-            <span className="w-10 h-8 flex justify-center items-center">
+          <div className="flex items-center justify-center text-2xl font-bold leading-8">
+            <span className="flex h-8 w-10 items-center justify-center">
               <MdDevicesOther />
             </span>
             <span>20</span>
           </div>
         </div>
-        <div className="bg-white h-20 rounded-md border-[3px] border-solid boder-[#ABADB0] hover:border-blue-800">
-          <div className="text-sm font-bold text-center leading-7">
+        <div className="boder-[#ABADB0] h-20 rounded-md border-[3px] border-solid bg-white hover:border-blue-800">
+          <div className="text-center text-sm font-bold leading-7">
             Total Users
           </div>
-          <div className="text-2xl font-bold flex justify-center items-center leading-8">
-            <span className="w-10 h-8 flex justify-center items-center">
+          <div className="flex items-center justify-center text-2xl font-bold leading-8">
+            <span className="flex h-8 w-10 items-center justify-center">
               <FaUsers />
             </span>
             <span>20</span>
@@ -33,9 +33,9 @@ const Home = () => {
       </div>
       <div className="bg-[#EEEEEE]">
         <div className="ml-4 bg-white pb-8 pr-4">
-          <div className="flex items-center ml-8 my-8">
-            <img src={BackGroundIcon} alt="" className="w-20 h-20"></img>
-            <h2 className="text-4xl font-bold text-[#132533]">
+          <div className="my-8 ml-8 flex items-center">
+            <img src={BackGroundIcon} alt="" className="h-20 w-20"></img>
+            <h2 className="text-4xl font-bold text-[#000A3D]">
               Bắt đầu với TLU.io
             </h2>
           </div>
@@ -63,7 +63,9 @@ const Home = () => {
             sẽ dễ dàng hơn nhiều.
           </p>
           <div className="ml-8 mt-14">
-            <h4 className="text-2xl font-bold mb-12">Kiểm soát môi trường</h4>
+            <h4 className="mb-12 text-2xl font-bold text-[#000A3D]">
+              Kiểm soát môi trường
+            </h4>
             <div className="flex">
               <div className="w-1/2 pr-4">
                 <img
@@ -71,7 +73,7 @@ const Home = () => {
                   alt="image_introduce"
                 ></img>
               </div>
-              <div className="w-1/2 leading-6 text-justify tracking-wider">
+              <div className="w-1/2 text-justify leading-6 tracking-wider">
                 <p>
                   Trường hợp sử dụng giám sát môi trường cơ bản trực quan hóa
                   các cảm biến trên bản đồ và sử dụng bảng. Cho phép bạn cung
@@ -87,14 +89,16 @@ const Home = () => {
                   để quản lý thiết bị và thuộc tính của chúng thông qua giao
                   diện người dùng Bảng điều khiển.
                 </p>
-                <button className="w-28 h-9 bg-[#132533] text-white rounded font-semibold mt-9">
+                <button className="mt-9 h-9 w-28 rounded bg-[#132533] font-semibold text-white">
                   Read more
                 </button>
               </div>
             </div>
           </div>
           <div className="ml-8 mt-14">
-            <h4 className="text-2xl font-bold mb-12">Kiểm soát môi trường</h4>
+            <h4 className="mb-12 text-2xl font-bold text-[#000A3D]">
+              Kiểm soát môi trường
+            </h4>
             <div className="flex flex-row-reverse">
               <div className="w-1/2 pr-4">
                 <img
@@ -102,7 +106,7 @@ const Home = () => {
                   alt="image_introduce"
                 ></img>
               </div>
-              <div className="w-1/2 leading-6 text-justify tracking-wider">
+              <div className="w-1/2 text-justify leading-6 tracking-wider">
                 <p>
                   Trường hợp sử dụng giám sát môi trường cơ bản trực quan hóa
                   các cảm biến trên bản đồ và sử dụng bảng. Cho phép bạn cung
@@ -118,7 +122,7 @@ const Home = () => {
                   để quản lý thiết bị và thuộc tính của chúng thông qua giao
                   diện người dùng Bảng điều khiển.
                 </p>
-                <button className="w-28 h-9 bg-[#132533] text-white rounded font-semibold mt-9">
+                <button className="mt-9 h-9 w-28 rounded bg-[#132533] font-semibold text-white">
                   Read more
                 </button>
               </div>

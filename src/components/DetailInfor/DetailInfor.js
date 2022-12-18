@@ -11,7 +11,7 @@ const DetailInfor = ({ title, infor }) => {
           <FaInfoCircle className="ml-1" />
         </div>
       </div>
-      <div className="leading-5 flex items-center text-black">{infor}</div>
+      <div className="flex items-center leading-5 text-black">{infor}</div>
     </div>
   );
 };

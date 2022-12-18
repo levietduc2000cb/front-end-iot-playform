@@ -8,14 +8,15 @@ const BlockWrapperIntroduce = ({ title1, content1, title2, content2 }) => {
   return (
     <div className="bg-[#F0F3F4] pb-[71px]">
       <div className="px-[50px] pt-[50px]">
-        <h3 className="text-[#3a3f51] text-2xl font-medium leading-[26.4px] mb-[50px]">
+        <h3 className="mb-[50px] text-2xl font-medium leading-[26.4px] text-[#3a3f51]">
           {title1}
         </h3>
-        <div className="grid grid-cols-3 gap-[50px]">
+        <div className="grid grid-cols-3 gap-[50px] mtb:grid-cols-2 mmb:grid-cols-1">
           {content1.map((contentChild, index) => {
             return (
               <BlockIntroduceFeature
                 key={index}
+                indexBlock={index}
                 icon={contentChild.icon}
                 title={contentChild.title}
                 content={contentChild.content}
@@ -25,10 +26,10 @@ const BlockWrapperIntroduce = ({ title1, content1, title2, content2 }) => {
         </div>
       </div>
       <div className="px-[50px] pt-[90px]">
-        <h3 className="text-[#3a3f51] text-2xl font-medium leading-[26.4px] mb-[31px]">
+        <h3 className="mb-[31px] text-2xl font-medium leading-[26.4px] text-[#3a3f51]">
           {title2}
         </h3>
-        <div className="grid grid-cols-4 gap-[27px]">
+        <div className="grid grid-cols-4 gap-[27px] mtb:grid-cols-2 mmb:grid-cols-1">
           {content2.map((contentChild, index) => {
             return (
               <BlockIntroduceDocument

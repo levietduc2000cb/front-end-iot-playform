@@ -9,16 +9,16 @@ const BlockIntroduceDocument = ({ icon, title, subTitle, content }) => {
       href="/"
       target="_blank"
       rel="noopener"
-      className="p-[15px] bg-[#FFFFFF]"
+      className="bg-[#FFFFFF] p-[15px]"
     >
-      <div className="flex text-[#0174e9] text-lg leading-[18px] items-center">
+      <div className="flex items-center text-lg leading-[18px] text-[#0174e9]">
         <Icon></Icon>
         <span className="ml-[2px]">{title}</span>
       </div>
-      <div className="text-[#58666e] leading-[22.8571px] my-[15px]">
+      <div className="my-[15px] leading-[22.8571px] text-[#58666e]">
         {subTitle}
       </div>
-      <p className="text-[#98a6ad] leading-[22.8571px]">{content}</p>
+      <p className="leading-[22.8571px] text-[#98a6ad]">{content}</p>
     </a>
   );
 };

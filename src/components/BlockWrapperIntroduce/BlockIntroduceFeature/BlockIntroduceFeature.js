@@ -1,16 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const BlockIntroduceFeature = ({ icon, title, content }) => {
+const BlockIntroduceFeature = ({ indexBlock, icon, title, content }) => {
   let Icon = icon;
 
   return (
-    <div>
-      <Icon className="text-[28px] text-[#0174e9] leading-7 mb-8"></Icon>
-      <h4 className="text-[#0174e9] text-lg font-medium leading-5 mb-[30px]">
+    <div
+      className={`${
+        indexBlock === 2 &&
+        'mtb:col-start-1 mtb:col-end-3 mmb:col-start-auto mmb:col-end-auto'
+      }`}
+    >
+      <Icon className="mb-8 text-[28px] leading-7 text-[#0174e9]"></Icon>
+      <h4 className="mb-[30px] text-lg font-medium leading-5 text-[#0174e9]">
         {title}
       </h4>
-      <p className="text-[#58666e] leading-[22.8571px]">{content}</p>
+      <p className="leading-[22.8571px] text-[#58666e]">{content}</p>
     </div>
   );
 };

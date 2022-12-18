@@ -11,6 +11,7 @@ import LazyLoading from '~/components/LazyLoading';
 // import Profile from '~/pages/Profile';
 // import Setting from '~/pages/Setting';
 // import Support from '~/pages/Support';
+import PrivateRoute from './PrivateRoute';
 const Home = React.lazy(() => import('~/pages/Home'));
 const LogIn = React.lazy(() => import('~/pages/LogIn'));
 const LostPassword = React.lazy(() => import('~/pages/LostPassword'));
@@ -26,6 +27,7 @@ const DetailCustomer = React.lazy(() => import('~/pages/DetailCustomer'));
 const Profile = React.lazy(() => import('~/pages/Profile'));
 const Setting = React.lazy(() => import('~/pages/Setting'));
 const Document = React.lazy(() => import('~/pages/Document'));
+const NotFound = React.lazy(() => import('~/pages/NotFound'));
 
 const MainRoutes = () => {
   const routes = [
@@ -104,6 +106,11 @@ const MainRoutes = () => {
       element: Document,
       isLayout: true,
     },
+    {
+      path: '*',
+      element: NotFound,
+      isLayout: false,
+    },
   ];
   return (
     <Routes>
@@ -115,11 +122,13 @@ const MainRoutes = () => {
             path={route.path}
             element={
               route.isLayout ? (
-                <Layout>
-                  <React.Suspense fallback={<LazyLoading />}>
-                    <Element />
-                  </React.Suspense>
-                </Layout>
+                <PrivateRoute>
+                  <Layout>
+                    <React.Suspense fallback={<LazyLoading />}>
+                      <Element />
+                    </React.Suspense>
+                  </Layout>
+                </PrivateRoute>
               ) : (
                 <React.Suspense fallback={<LazyLoading />}>
                   <Element />

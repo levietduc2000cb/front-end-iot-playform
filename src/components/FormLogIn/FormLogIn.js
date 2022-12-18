@@ -1,9 +1,18 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Fragment } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch, useSelector } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
+
+import Spinner from '~/components/UI/Spinner';
+import { handleLogin } from '~/redux/slice/userSlice';
 
 const FormLogIn = () => {
+  const dispatch = useDispatch();
+  const { isLoading } = useSelector((state) => state.user);
+  const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -16,94 +25,127 @@ const FormLogIn = () => {
       password: Yup.string().required('You must fill your password'),
     }),
     onSubmit: (values) => {
-      console.log({ values });
+      dispatch(handleLogin(values))
+        .unwrap()
+        .then(() => {
+          navigate('/');
+        })
+        .catch(() => {
+          toast.error('Đăng nhập thất bại!', {
+            position: 'top-right',
+            autoClose: 1500,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'colored',
+          });
+        });
     },
   });
 
   return (
-    <form className="space-y-6" onSubmit={formik.handleSubmit}>
-      <div>
-        <label
-          htmlFor="email"
-          className="block mb-2 text-sm font-medium text-gray-900 text-left"
-        >
-          Email
-        </label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-          placeholder="name@gmail.com"
-          value={formik.values.email}
-          onChange={formik.handleChange}
-          autoComplete="off"
-        ></input>
-        {formik.errors.email && formik.touched.email && (
-          <p className="text-red-600 text-left">{formik.errors.email}</p>
-        )}
-      </div>
-      <div>
-        <label
-          htmlFor="password"
-          className="block mb-2 text-sm font-medium text-gray-900 text-left"
-        >
-          Password
-        </label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          placeholder="••••••••"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-          value={formik.values.password}
-          onChange={formik.handleChange}
-          autoComplete="off"
-        ></input>
-        {formik.errors.password && formik.touched.password && (
-          <p className="text-red-600 text-left">{formik.errors.password}</p>
-        )}
-      </div>
-      <div className="flex items-start">
-        <div className="flex items-start">
-          <div className="flex items-center h-5">
-            <input
-              id="remember"
-              type="checkbox"
-              value=""
-              className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 "
-            ></input>
-          </div>
+    <Fragment>
+      <form className="space-y-6" onSubmit={formik.handleSubmit}>
+        <div>
           <label
-            htmlFor="remember"
-            className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            htmlFor="email"
+            className="mb-2 block text-left text-sm font-medium text-gray-900"
           >
-            Remember me
+            Email
           </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+            placeholder="name@gmail.com"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            autoComplete="off"
+          ></input>
+          {formik.errors.email && formik.touched.email && (
+            <p className="text-left text-red-600">{formik.errors.email}</p>
+          )}
         </div>
-        <a
-          href="/lost-password"
-          className="ml-auto text-sm text-blue-700 hover:underline dark:text-blue-500"
-        >
-          Lost Password?
-        </a>
-      </div>
-      <button
-        type="submit"
-        className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-      >
-        Login
-      </button>
-      <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
-        Not registered?{' '}
-        <Link
-          to={'/register'}
-          className="text-blue-700 hover:underline dark:text-blue-500"
-        >
-          Create account
-        </Link>
-      </div>
-    </form>
+        <div>
+          <label
+            htmlFor="password"
+            className="mb-2 block text-left text-sm font-medium text-gray-900"
+          >
+            Password
+          </label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="••••••••"
+            className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            autoComplete="off"
+          ></input>
+          {formik.errors.password && formik.touched.password && (
+            <p className="text-left text-red-600">{formik.errors.password}</p>
+          )}
+        </div>
+        <div className="flex items-start">
+          <div className="flex items-start">
+            <div className="flex h-5 items-center">
+              <input
+                id="remember"
+                type="checkbox"
+                value=""
+                className="focus:ring-3 h-4 w-4 rounded border border-gray-300 bg-gray-50 focus:ring-blue-300 "
+              ></input>
+            </div>
+            <label
+              htmlFor="remember"
+              className="ml-2 text-sm font-medium text-gray-900 "
+            >
+              Remember me
+            </label>
+          </div>
+          <a
+            href="/lost-password"
+            className="ml-auto text-sm text-blue-700 hover:underline "
+          >
+            Lost Password?
+          </a>
+        </div>
+        {isLoading ? (
+          <div className="flex justify-center">
+            <Spinner width="w-8" height="h-8" />
+          </div>
+        ) : (
+          <button
+            type="submit"
+            className="w-full rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300"
+          >
+            Login
+          </button>
+        )}
+        <div className="text-sm font-medium text-gray-500 ">
+          Not registered?{' '}
+          <Link to={'/register'} className="text-blue-700 hover:underline ">
+            Create account
+          </Link>
+        </div>
+      </form>
+      <ToastContainer
+        position="top-right"
+        autoClose={1500}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
+    </Fragment>
   );
 };
 

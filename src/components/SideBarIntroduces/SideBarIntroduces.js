@@ -9,9 +9,9 @@ const SideBarIntroduces = ({ title, content, contentBtn, elementForm }) => {
   return (
     <div className="w-full p-12">
       <div className="flex items-center px-9">
-        <div className="max-w-[500px] w-full text-left mr-12">
+        <div className="mr-12 w-full max-w-[500px] text-left">
           <div className="text-4xl font-medium leading-10">{title}</div>
-          <div className="text-[#58666e] text-lg font-medium leading-5 mt-4 mb-10">
+          <div className="mt-4 mb-10 text-lg font-medium leading-5 text-[#58666e]">
             {content}
           </div>
           <ButtonCreateForm
@@ -19,11 +19,11 @@ const SideBarIntroduces = ({ title, content, contentBtn, elementForm }) => {
             elementForm={elementForm}
           ></ButtonCreateForm>
         </div>
-        <div>
+        <div className="mtb:hidden">
           <img
             src={Background_iot_platform}
             alt="background_iot_platform"
-            className="w-[600px] h-[480px]"
+            className="h-[480px] w-[600px]"
           ></img>
         </div>
       </div>

@@ -17,11 +17,11 @@ const ButtonCreateForm = ({ contentBtn, elementForm }) => {
   return (
     <>
       <button
-        className="flex items-center justify-center bg-[#27C24C] hover:bg-[#23ad44] border-none outline-none w-[197px] h-[48px] rounded-full"
+        className="flex h-[48px] w-[197px] items-center justify-center rounded-full border-none bg-[#FC2626] outline-none hover:bg-[#ff4646]"
         onClick={handleOpenModalCreateForm}
       >
-        <IoMdAddCircle className="text-[#ffffff] w-[18px] h-[18px] mr-1" />
-        <span className="text-[#ffffff] text-lg  leading-6 font-medium">
+        <IoMdAddCircle className="mr-1 h-[18px] w-[18px] text-[#ffffff]" />
+        <span className="text-lg font-medium  leading-6 text-[#ffffff]">
           {contentBtn}
         </span>
       </button>
